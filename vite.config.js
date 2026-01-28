@@ -1,16 +1,9 @@
-console.log('🚀 LOADING VITE CONFIG (vite.config.cjs)...');
-const { defineConfig } = require('vite')
-const react = require('@vitejs/plugin-react')
-let VitePWA;
-try {
-    VitePWA = require('vite-plugin-pwa').VitePWA;
-} catch (e) {
-    console.warn('⚠️ vite-plugin-pwa not found, PWA features disabled for this build.');
-    VitePWA = () => []; // No-op plugin
-}
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
-module.exports = defineConfig({
+export default defineConfig({
     plugins: [
         react(),
         VitePWA({
@@ -24,8 +17,6 @@ module.exports = defineConfig({
                 background_color: '#0c0a09',
                 display: 'standalone',
                 orientation: 'portrait',
-                scope: '/',
-                start_url: '/',
                 icons: [
                     {
                         src: 'pwa-192x192.png',
@@ -55,7 +46,7 @@ module.exports = defineConfig({
                             cacheName: 'google-fonts-cache',
                             expiration: {
                                 maxEntries: 10,
-                                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+                                maxAgeSeconds: 60 * 60 * 24 * 365
                             },
                             cacheableResponse: {
                                 statuses: [0, 200]
@@ -69,7 +60,7 @@ module.exports = defineConfig({
                             cacheName: 'gstatic-fonts-cache',
                             expiration: {
                                 maxEntries: 10,
-                                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+                                maxAgeSeconds: 60 * 60 * 24 * 365
                             },
                             cacheableResponse: {
                                 statuses: [0, 200]
