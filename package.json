@@ -3,9 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "dev": "vite --config vite.config.cjs",
-    "build": "rm -f vite.config.js && vite build --config vite.config.cjs",
+    "dev": "vite",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
