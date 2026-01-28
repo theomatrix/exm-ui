@@ -1,8 +1,9 @@
 {
-    "rewrites": [
-        {
-            "source": "/((?!.*\\.(png|jpg|jpeg|gif|svg|ico|webp|webmanifest|js|css|woff|woff2|ttf|eot)).*)",
-            "destination": "/index.html"
-        }
-    ]
+  "rewrites": [
+    { "source": "/manifest.webmanifest", "destination": "/manifest.webmanifest" },
+    { "source": "/:path*.png", "destination": "/:path*.png" },
+    { "source": "/:path*.ico", "destination": "/:path*.ico" },
+    { "source": "/:path*.svg", "destination": "/:path*.svg" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
