@@ -1,6 +1,13 @@
+console.log('🚀 LOADING VITE CONFIG (vite.config.cjs)...');
 const { defineConfig } = require('vite')
 const react = require('@vitejs/plugin-react')
-const { VitePWA } = require('vite-plugin-pwa')
+let VitePWA;
+try {
+    VitePWA = require('vite-plugin-pwa').VitePWA;
+} catch (e) {
+    console.warn('⚠️ vite-plugin-pwa not found, PWA features disabled for this build.');
+    VitePWA = () => []; // No-op plugin
+}
 
 // https://vitejs.dev/config/
 module.exports = defineConfig({
