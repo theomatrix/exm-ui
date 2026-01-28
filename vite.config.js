@@ -8,8 +8,10 @@ export default defineConfig({
         react(),
         VitePWA({
             registerType: 'autoUpdate',
+            injectRegister: 'auto',
             includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
             manifest: {
+                id: '/expense-manager-app',
                 name: 'Expense Manager',
                 short_name: 'ExpenseMan',
                 description: 'Track your work hours, overtime, travel and food expenses',
